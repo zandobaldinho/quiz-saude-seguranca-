@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia de Bolso — Saúde e Educação</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'sans-serif'],
+            serif: ['Merriweather', 'serif'],
+          },
+          colors: {
+            forest:  { 50:'#f0fdf4', 100:'#dcfce7', 500:'#16a34a', 600:'#15803d', 700:'#166534', 800:'#14532d' },
+            sky:     { 50:'#f0f9ff', 100:'#e0f2fe', 500:'#0ea5e9', 600:'#0284c7', 700:'#0369a1', 800:'#075985' },
+            violet:  { 50:'#f5f3ff', 100:'#ede9fe', 500:'#7c3aed', 600:'#6d28d9', 700:'#5b21b6', 800:'#4c1d95' },
+            rose:    { 50:'#fff1f2', 100:'#ffe4e6', 500:'#f43f5e', 600:'#e11d48', 700:'#be123c', 800:'#9f1239' },
+            amber:   { 400:'#fbbf24', 500:'#f59e0b', 600:'#d97706', 800:'#92400e' },
+          },
+          animation: {
+            'fade-in':   'fadeIn 0.4s ease-out',
+            'slide-up':  'slideUp 0.4s ease-out',
+            'bounce-in': 'bounceIn 0.5s ease-out',
+            'shake':     'shake 0.4s ease-in-out',
+          },
+          keyframes: {
+            fadeIn:   { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            slideUp:  { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            bounceIn: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '70%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            shake:    { '0%,100%': { transform: 'translateX(0)' }, '20%,60%': { transform: 'translateX(-6px)' }, '40%,80%': { transform: 'translateX(6px)' } },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Nunito', sans-serif; }
+    .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+    .option-btn { transition: all 0.18s ease; }
+    .option-btn:hover:not(:disabled) { transform: translateX(6px); }
+    .progress-bar { transition: width 0.6s cubic-bezier(.4,0,.2,1); }
+    .tip-box { border-left: 4px solid; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+  </style>
+</head>
+<body class="min-h-screen" style="background: linear-gradient(135deg, #052e16 0%, #14532d 45%, #064e3b 100%);">
+
+<!-- TOPO -->
+<header class="text-center py-8 px-4 animate-fade-in">
+  <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur rounded-2xl px-6 py-3 mb-4">
+    <span class="text-2xl">📋</span>
+    <span class="text-white/80 font-bold text-sm tracking-widest uppercase">Guia de Bolso</span>
+  </div>
+  <h1 class="text-white font-black text-4xl md:text-5xl leading-tight mb-2">Saúde &amp; Educação</h1>
+  <p class="text-green-200 text-lg max-w-xl mx-auto">Conheça seus direitos garantidos pela Constituição Federal — saúde universal, escola para todos e benefícios que você talvez não saiba que existem.</p>
+</header>
+
+<!-- CONTAINER PRINCIPAL -->
+<main id="app" class="max-w-2xl mx-auto px-4 pb-16">
+
+  <!-- TELA: INÍCIO -->
+  <div id="screen-home" class="animate-slide-up">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 mb-6">
+      <p class="text-slate-500 text-center mb-6 text-lg">Este guia tem <strong class="text-slate-700">4 módulos</strong> com perguntas e explicações. Leia com calma — o conhecimento é o melhor remédio!</p>
+      <div class="grid grid-cols-2 gap-4 mb-8">
+        <div class="card-hover bg-green-50 border border-green-100 rounded-2xl p-5 cursor-default">
+          <div class="text-3xl mb-2">📖</div>
+          <div class="font-bold text-green-800 text-lg">Módulo 1</div>
+          <div class="text-green-600 font-semibold text-sm">Educação é Direito de Todos</div>
+        </div>
+        <div class="card-hover bg-sky-50 border border-sky-100 rounded-2xl p-5 cursor-default">
+          <div class="text-3xl mb-2">🎒</div>
+          <div class="font-bold text-sky-800 text-lg">Módulo 2</div>
+          <div class="text-sky-600 font-semibold text-sm">Permanência e Inclusão</div>
+        </div>
+        <div class="card-hover bg-violet-50 border border-violet-100 rounded-2xl p-5 cursor-default">
+          <div class="text-3xl mb-2">🏥</div>
+          <div class="font-bold text-violet-800 text-lg">Módulo 3</div>
+          <div class="text-violet-600 font-semibold text-sm">SUS — Saúde Universal</div>
+        </div>
+        <div class="card-hover bg-rose-50 border border-rose-100 rounded-2xl p-5 cursor-default">
+          <div class="text-3xl mb-2">💊</div>
+          <div class="font-bold text-rose-800 text-lg">Módulo 4</div>
+          <div class="text-rose-600 font-semibold text-sm">Plano de Saúde e Remédios</div>
+        </div>
+      </div>
+      <button onclick="startQuiz()" class="w-full bg-green-700 hover:bg-green-800 active:scale-95 text-white font-black text-xl py-5 rounded-2xl shadow-lg transition-all duration-200">
+        Começar o Guia 🚀
+      </button>
+    </div>
+    <p class="text-center text-green-200 text-sm">Baseado em: CF/88 art. 205, 206, 208; LDB; PNAE (FNDE); Portaria MS; ANS; Ministério da Saúde</p>
+  </div>
+
+  <!-- TELA: QUIZ -->
+  <div id="screen-quiz" class="hidden animate-slide-up">
+
+    <!-- Barra de progresso -->
+    <div class="bg-white/20 rounded-full h-3 mb-3 overflow-hidden">
+      <div id="progress-bar" class="progress-bar h-3 rounded-full bg-gradient-to-r from-green-400 to-sky-400" style="width:0%"></div>
+    </div>
+    <div class="flex justify-between text-white/70 text-sm font-semibold mb-6 px-1">
+      <span id="progress-label">Questão 1 de 12</span>
+      <span id="score-label">✨ 0 pontos</span>
+    </div>
+
+    <!-- Card da questão -->
+    <div id="question-card" class="bg-white rounded-3xl shadow-2xl p-8 mb-4 animate-slide-up">
+
+      <!-- Cabeçalho do módulo -->
+      <div id="module-header" class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 rounded-xl px-3 py-2">
+        <div id="module-icon" class="text-4xl"></div>
+        <div>
+          <div id="module-name" class="font-black text-lg"></div>
+          <div id="module-subtitle" class="text-slate-500 text-sm font-semibold"></div>
+        </div>
+      </div>
+
+      <!-- Pergunta -->
+      <p id="question-text" class="text-slate-800 font-bold text-xl md:text-2xl leading-snug mb-8"></p>
+
+      <!-- Opções -->
+      <div id="options-container" class="space-y-3"></div>
+
+      <!-- Feedback -->
+      <div id="feedback-box" class="hidden mt-6 rounded-2xl p-5 animate-bounce-in">
+        <div class="flex items-start gap-3">
+          <div id="feedback-icon" class="text-3xl flex-shrink-0"></div>
+          <div>
+            <div id="feedback-title" class="font-black text-lg mb-1"></div>
+            <p id="feedback-text" class="font-semibold text-base leading-relaxed"></p>
+          </div>
+        </div>
+        <div id="tip-box" class="hidden mt-4 rounded-xl p-4 tip-box">
+          <div class="flex items-start gap-2">
+            <span class="text-xl">💡</span>
+            <p id="tip-text" class="font-semibold text-sm leading-relaxed"></p>
+          </div>
+        </div>
+        <div id="link-box" class="hidden mt-3">
+          <a id="link-url" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-bold text-green-700 underline underline-offset-2">
+            🔗 <span id="link-label"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Botão Próxima -->
+      <button id="btn-next" onclick="nextQuestion()" class="hidden w-full mt-6 bg-green-700 hover:bg-green-800 active:scale-95 text-white font-black text-lg py-4 rounded-2xl shadow transition-all duration-200">
+        Próxima Pergunta →
+      </button>
+    </div>
+  </div>
+
+  <!-- TELA: RESULTADO FINAL -->
+  <div id="screen-result" class="hidden animate-bounce-in">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 text-center">
+      <div id="result-emoji" class="text-7xl mb-4"></div>
+      <h2 id="result-title" class="font-black text-3xl mb-2 text-slate-800"></h2>
+      <p id="result-subtitle" class="text-slate-500 text-lg mb-6"></p>
+
+      <div class="bg-slate-50 rounded-2xl p-6 mb-6">
+        <div class="text-5xl font-black text-green-700 mb-1" id="result-score"></div>
+        <div class="text-slate-500 font-semibold">acertos de 12 questões</div>
+        <div class="mt-4 bg-slate-200 rounded-full h-4 overflow-hidden">
+          <div id="result-bar" class="h-4 rounded-full bg-gradient-to-r from-green-400 to-sky-500 progress-bar" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Resumo por módulo -->
+      <div class="grid grid-cols-2 gap-3 mb-8 text-left">
+        <div class="rounded-xl p-4 bg-green-50 border border-green-100">
+          <div class="text-xl mb-1">📖</div>
+          <div class="font-black text-green-800 text-sm">Educação é Direito</div>
+          <div id="summary-0-score" class="text-green-600 font-bold text-lg"></div>
+        </div>
+        <div class="rounded-xl p-4 bg-sky-50 border border-sky-100">
+          <div class="text-xl mb-1">🎒</div>
+          <div class="font-black text-sky-800 text-sm">Permanência e Inclusão</div>
+          <div id="summary-1-score" class="text-sky-600 font-bold text-lg"></div>
+        </div>
+        <div class="rounded-xl p-4 bg-violet-50 border border-violet-100">
+          <div class="text-xl mb-1">🏥</div>
+          <div class="font-black text-violet-800 text-sm">SUS — Saúde Universal</div>
+          <div id="summary-2-score" class="text-violet-600 font-bold text-lg"></div>
+        </div>
+        <div class="rounded-xl p-4 bg-rose-50 border border-rose-100">
+          <div class="text-xl mb-1">💊</div>
+          <div class="font-black text-rose-800 text-sm">Plano e Remédios</div>
+          <div id="summary-3-score" class="text-rose-600 font-bold text-lg"></div>
+        </div>
+      </div>
+
+      <!-- Dicas finais -->
+      <div class="bg-green-50 border border-green-100 rounded-2xl p-5 mb-6 text-left">
+        <h3 class="font-black text-green-800 text-base mb-3">📌 Leve sempre com você:</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-green-700 font-semibold text-sm"><span>✅</span> A educação é direito de todos — nenhuma escola pode recusar matrícula por discriminação</li>
+          <li class="flex items-start gap-2 text-green-700 font-semibold text-sm"><span>✅</span> O SUS atende qualquer pessoa, inclusive estrangeiros, sem custo direto</li>
+          <li class="flex items-start gap-2 text-green-700 font-semibold text-sm"><span>✅</span> Medicamentos de alto custo podem ser gratuitos pelo CEAF/SUS com receita médica</li>
+          <li class="flex items-start gap-2 text-green-700 font-semibold text-sm"><span>✅</span> Plano de saúde negando procedimento prescrito? Reclame na ANS em até 24h (urgência)</li>
+          <li class="flex items-start gap-2 text-green-700 font-semibold text-sm"><span>✅</span> Estudante em vulnerabilidade pode ter direito ao Bolsa Permanência (MEC)</li>
+          <li class="flex items-start gap-2 text-green-700 font-semibold text-sm"><span>✅</span> Em caso de negativa de direito: procure a Defensoria Pública — é gratuita!</li>
+        </ul>
+      </div>
+
+      <button onclick="resetQuiz()" class="w-full bg-green-700 hover:bg-green-800 active:scale-95 text-white font-black text-lg py-4 rounded-2xl shadow transition-all duration-200 mb-3">
+        🔄 Refazer o Guia
+      </button>
+      <p class="text-slate-400 text-xs">Fontes: CF/88 art. 205–208; LDB Lei 9.394/96; PNAE/FNDE; Portarias MS; Lei ANS 9.656/98; PUC-SP (2024); USP/CEDIHUS; MPCE</p>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ============================================================
+// DADOS
+// ============================================================
+const modules = [
+  {
+    icon: '📖',
+    name: 'Módulo 1',
+    subtitle: 'Educação é Direito de Todos',
+    headerBg: 'bg-green-50',
+    headerText: 'text-green-800',
+    headerSub: 'text-green-500',
+  },
+  {
+    icon: '🎒',
+    name: 'Módulo 2',
+    subtitle: 'Permanência e Inclusão Escolar',
+    headerBg: 'bg-sky-50',
+    headerText: 'text-sky-800',
+    headerSub: 'text-sky-500',
+  },
+  {
+    icon: '🏥',
+    name: 'Módulo 3',
+    subtitle: 'SUS — Saúde Universal',
+    headerBg: 'bg-violet-50',
+    headerText: 'text-violet-800',
+    headerSub: 'text-violet-500',
+  },
+  {
+    icon: '💊',
+    name: 'Módulo 4',
+    subtitle: 'Plano de Saúde e Medicamentos',
+    headerBg: 'bg-rose-50',
+    headerText: 'text-rose-800',
+    headerSub: 'text-rose-500',
+  },
+];
+
+const questions = [
+  // === MÓDULO 1: Educação é Direito de Todos ===
+  {
+    moduleIndex: 0,
+    text: 'De acordo com o artigo 205 da Constituição Federal, a educação é um direito de quem?',
+    options: [
+      'Apenas crianças e adolescentes até 18 anos',
+      'Somente quem comprova renda baixa e situação de vulnerabilidade',
+      'Todos — é direito de qualquer pessoa, sem distinção',
+      'Apenas cidadãos brasileiros natos',
+    ],
+    correct: 2,
+    feedback: 'Isso mesmo! O art. 205 da CF/88 é claro: a educação é direito de todos e dever do Estado e da família. Isso inclui adultos, idosos, pessoas com deficiência e estrangeiros residentes.',
+    tip: 'Segundo o USP/CEDIHUS, a educação é um direito fundamental que deve ser garantido com igualdade de condições de acesso e permanência, sem qualquer forma de discriminação.',
+    feedbackWrong: 'Na verdade, a educação é direito de todos — garantida pelo art. 205 da CF/88 sem distinção de idade, renda ou origem.',
+    link: 'https://sites.usp.br/cedihus/acesso-a-educacao-especial-como-direito-fundamental-art-205-da-constituicao-federal/',
+    linkLabel: 'Leia mais sobre o art. 205 (USP/CEDIHUS)',
+  },
+  {
+    moduleIndex: 0,
+    text: 'Uma escola pública pode recusar a matrícula de um aluno alegando sua religião, raça ou condição social?',
+    options: [
+      'Sim, se tiver justificativa pedagógica documentada',
+      'Sim, apenas em escolas com regimento interno específico',
+      'Não — isso é inconstitucional e pode ser denunciado',
+      'Somente em casos de superlotação comprovada',
+    ],
+    correct: 2,
+    feedback: 'Correto! O art. 206 da CF/88 garante igualdade de condições de acesso e permanência na escola. Recusar matrícula por motivos discriminatórios é inconstitucional.',
+    tip: 'Em caso de recusa indevida de matrícula, procure a Defensoria Pública do seu estado ou o Ministério Público. O atendimento é gratuito e o prazo para resolução costuma ser rápido.',
+    feedbackWrong: 'Não, isso é proibido pela Constituição. O art. 206 garante igualdade de acesso — nenhuma escola pode discriminar um aluno por raça, religião ou condição social.',
+    link: 'https://www.tjdft.jus.br/consultas/jurisprudencia/jurisprudencia-em-temas/direito-constitucional/direito-a-educacao-efetividade-dos-principios-reguladores-do-ensino',
+    linkLabel: 'Ver jurisprudência sobre igualdade na escola',
+  },
+  {
+    moduleIndex: 0,
+    text: 'Estudantes da educação básica pública têm direito a alimentação escolar gratuita. Qual programa federal garante isso?',
+    options: [
+      'Programa de Alimentação do Trabalhador (PAT)',
+      'Programa Nacional de Alimentação Escolar (PNAE)',
+      'Bolsa Família — componente alimentar',
+      'Programa Fome Zero — modalidade escolar',
+    ],
+    correct: 1,
+    feedback: 'Muito bem! O PNAE, coordenado pelo FNDE/MEC, garante alimentação escolar a todos os alunos da rede pública. A lei exige que pelo menos 30% dos recursos venham da agricultura familiar local.',
+    tip: 'Além da alimentação, a lei federal também prevê fornecimento de material didático para alunos de baixa renda e o Programa Dinheiro Direto na Escola (PDDE) para custeio das atividades.',
+    feedbackWrong: 'O programa correto é o PNAE — Programa Nacional de Alimentação Escolar, gerido pelo FNDE. Ele beneficia todos os alunos da rede pública básica, do ensino infantil ao médio.',
+    link: 'https://legis.senado.leg.br/norma/37846114/publicacao/37847207',
+    linkLabel: 'Ver legislação do PNAE no Senado',
+  },
+
+  // === MÓDULO 2: Permanência e Inclusão ===
+  {
+    moduleIndex: 1,
+    text: 'Alunos com deficiência têm direito ao Atendimento Educacional Especializado (AEE). Esse atendimento deve ser oferecido onde?',
+    options: [
+      'Exclusivamente em escolas especiais privadas credenciadas',
+      'Apenas em clínicas de reabilitação conveniadas ao SUS',
+      'Preferencialmente na rede regular de ensino (escola comum)',
+      'Somente em institutos federais e CEFETs',
+    ],
+    correct: 2,
+    feedback: 'Isso! O art. 208, III da CF/88 garante AEE preferencialmente na rede regular. A escola comum deve se adaptar para incluir — não o aluno se adaptar para ser aceito.',
+    tip: 'O AEE inclui: intérprete de Libras, materiais em Braille, adequações curriculares, sala de recursos multifuncionais e tecnologias assistivas. A família pode exigir esses recursos sem custo.',
+    feedbackWrong: 'A Constituição exige que o AEE seja ofertado preferencialmente na rede regular de ensino. Escolas comuns são obrigadas a se adaptar para receber alunos com deficiência.',
+    link: 'https://sites.usp.br/cedihus/acesso-a-educacao-especial-como-direito-fundamental-art-205-da-constituicao-federal/',
+    linkLabel: 'Saiba mais sobre AEE (USP/CEDIHUS)',
+  },
+  {
+    moduleIndex: 1,
+    text: 'Crianças que moram em área rural têm direito a transporte escolar gratuito. Caso o município não ofereça, o que pode ser feito?',
+    options: [
+      'A família deve arcar com os custos e pedir reembolso depois',
+      'Apenas reclamar com a direção da escola',
+      'Solicitar providências ao Ministério Público ou Defensoria Pública',
+      'Trocar de escola para uma mais próxima de casa',
+    ],
+    correct: 2,
+    feedback: 'Correto! A LDB (Lei 9.394/96, art. 4º, VIII) obriga estados e municípios a oferecer transporte escolar gratuito. O MP e a Defensoria podem acionar o poder público para cumprir essa obrigação.',
+    tip: 'O transporte escolar é especialmente importante para garantir a permanência de crianças do campo na escola. Sua ausência é motivo de evasão escolar e pode ser combatida judicialmente.',
+    feedbackWrong: 'O caminho certo é acionar o Ministério Público ou a Defensoria Pública, que podem obrigar o município a cumprir a lei. O transporte escolar é um direito, não um favor.',
+    link: 'https://mpce.mp.br/institucional/centros-de-apoio-operacional/caoeduc/kits-de-atuacao/kit-transporte-escolar/',
+    linkLabel: 'Kit de atuação — Transporte Escolar (MPCE)',
+  },
+  {
+    moduleIndex: 1,
+    text: 'O Bolsa Permanência do MEC oferece auxílio financeiro para estudar. Quem tem prioridade nesse programa?',
+    options: [
+      'Todos os estudantes de universidades públicas automaticamente',
+      'Apenas estudantes de pós-graduação em pesquisa científica',
+      'Estudantes indígenas, quilombolas e em vulnerabilidade socioeconômica em IES federais',
+      'Somente alunos do ensino médio técnico integrado',
+    ],
+    correct: 2,
+    feedback: 'Muito bem! O Bolsa Permanência atende graduandos de IES federais em vulnerabilidade socioeconômica, com valor maior para indígenas e quilombolas por conta das especificidades de suas comunidades.',
+    tip: 'O valor para estudantes indígenas e quilombolas é quase o dobro do valor padrão. A inscrição é feita pela plataforma do MEC e renovada semestralmente com comprovação de frequência.',
+    feedbackWrong: 'O Bolsa Permanência é focado em estudantes de IES federais em situação de vulnerabilidade, com prioridade para indígenas e quilombolas — não é automático para todos.',
+    link: 'https://www.gov.br/mec/pt-br/acesso-a-informacao/acoes-e-programas/bolsa-permanencia',
+    linkLabel: 'Bolsa Permanência — Ministério da Educação',
+  },
+
+  // === MÓDULO 3: SUS ===
+  {
+    moduleIndex: 2,
+    text: 'O SUS (Sistema Único de Saúde) atende qualquer pessoa? Inclusive estrangeiros?',
+    options: [
+      'Não — apenas brasileiros com CPF e título de eleitor',
+      'Sim, mas estrangeiros pagam uma taxa de atendimento',
+      'Apenas quem contribui para o INSS ou tem carteirinha do SUS',
+      'Sim — o SUS é universal e gratuito para qualquer pessoa no território nacional',
+    ],
+    correct: 3,
+    feedback: 'Exatamente! A universalidade é um dos princípios fundamentais do SUS (CF/88, art. 196). Qualquer pessoa — brasileira ou estrangeira — tem direito ao atendimento, sem precisar de cadastro ou contribuição.',
+    tip: 'Além da universalidade, o SUS se baseia em integralidade (atendimento completo, do básico ao complexo) e equidade (quem mais precisa recebe mais). São direitos, não benesses.',
+    feedbackWrong: 'O SUS é universal — qualquer pessoa no território nacional tem direito ao atendimento, sem custo, sem exigência de CPF ou contribuição previdenciária.',
+    link: 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/sus-o-que-e-como-funciona',
+    linkLabel: 'O que é o SUS — Ministério da Saúde',
+  },
+  {
+    moduleIndex: 2,
+    text: 'Você foi ao pronto-socorro mas o médico anotou o diagnóstico errado no sistema. Qual é o seu direito?',
+    options: [
+      'Nenhum — o prontuário é propriedade exclusiva do hospital',
+      'Apenas solicitar uma cópia após 30 dias por protocolo',
+      'Solicitar acesso e correção do seu prontuário médico a qualquer momento',
+      'Trocar de médico no próximo atendimento',
+    ],
+    correct: 2,
+    feedback: 'Correto! O paciente tem direito de acesso ao seu prontuário médico (CFM, Res. 1.821/07 e Lei 13.787/18). Você pode solicitar cópia e pedir correção de informações incorretas.',
+    tip: 'O prontuário é seu! Qualquer estabelecimento de saúde (público ou privado) é obrigado a fornecer cópia ao paciente. Em caso de recusa, o Conselho Regional de Medicina (CRM) pode ser acionado.',
+    feedbackWrong: 'O prontuário pertence ao paciente. Você tem direito de solicitar cópia e corrigir informações erradas a qualquer momento, tanto em hospitais públicos quanto privados.',
+    link: 'https://www.gov.br/saude/pt-br/acesso-a-informacao/acoes-e-programas/sus',
+    linkLabel: 'Direitos do paciente — Ministério da Saúde',
+  },
+  {
+    moduleIndex: 2,
+    text: 'Pelo SUS, pacientes com doenças crônicas ou de alto custo podem receber medicamentos gratuitamente. Como funciona?',
+    options: [
+      'Compram com desconto nas Farmácias Populares',
+      'Pelo Componente Especializado da Assistência Farmacêutica (CEAF), com receita médica do SUS e laudo',
+      'Apenas em hospitais universitários federais, com autorização judicial',
+      'Somente para quem tem convênio médico e plano de saúde',
+    ],
+    correct: 1,
+    feedback: 'Isso mesmo! O CEAF garante medicamentos de alto custo gratuitamente. O paciente precisa de diagnóstico confirmado, receita médica pelo SUS e laudo específico, podendo retirar nas farmácias de referência estaduais.',
+    tip: 'Entre os medicamentos disponíveis estão tratamentos para diabetes, câncer, esclerose múltipla, HIV e doenças raras. Se o SUS não fornecer o medicamento prescrito, é possível buscar via judicial.',
+    feedbackWrong: 'O caminho correto é o CEAF — Componente Especializado da Assistência Farmacêutica. Com receita e laudo do SUS, o paciente retira gratuitamente nas farmácias de referência estaduais.',
+    link: 'https://www.gov.br/saude/pt-br/assuntos/assistencia-farmaceutica',
+    linkLabel: 'Assistência Farmacêutica — Ministério da Saúde',
+  },
+
+  // === MÓDULO 4: Plano de Saúde e Remédios ===
+  {
+    moduleIndex: 3,
+    text: 'Seu plano de saúde negou um procedimento prescrito pelo seu médico. O que você pode fazer?',
+    options: [
+      'Nada — a decisão é exclusiva do plano de saúde',
+      'Apenas reclamar nas redes sociais e esperar',
+      'Registrar reclamação na ANS, que tem prazo para obrigar o plano a responder',
+      'Trocar de plano imediatamente',
+    ],
+    correct: 2,
+    feedback: 'Correto! A ANS (Agência Nacional de Saúde Suplementar) regula os planos e obriga o cumprimento do Rol de Procedimentos. Em situações urgentes, o prazo de resposta é de até 24 horas.',
+    tip: 'Se o procedimento está no Rol da ANS e foi prescrito por médico, o plano é obrigado a cobrir. A negativa indevida pode gerar multa ao plano e você pode buscar ressarcimento na Justiça.',
+    feedbackWrong: 'Você tem direito de reclamar na ANS! O plano deve cobrir procedimentos do Rol da ANS prescritos por médico. Em urgência, têm até 24h para resolver. O canal é o site ou 0800 da ANS.',
+    link: 'https://www.gov.br/ans/pt-br',
+    linkLabel: 'ANS — Canal de reclamação de planos',
+  },
+  {
+    moduleIndex: 3,
+    text: 'Uma farmácia cobra o preço cheio de um medicamento genérico. Você sabe que existe um desconto obrigatório. A que tem direito?',
+    options: [
+      'Nenhum desconto — o preço é livre no mercado',
+      'Desconto de 10% apenas para idosos acima de 80 anos',
+      'Desconto de pelo menos 24% (lei do genérico) e possibilidade de gratuidade no Farmácia Popular',
+      'Desconto somente em farmácias vinculadas ao SUS',
+    ],
+    correct: 2,
+    feedback: 'Isso! Os medicamentos genéricos custam até 35% menos que os de referência por lei. Além disso, o Programa Farmácia Popular oferece muitos remédios (hipertensão, diabetes, etc.) gratuitamente ou com 90% de desconto.',
+    tip: 'No Farmácia Popular, insulina, fraldas geriátricas e anticoncepcionais também têm desconto. Basta apresentar CPF e receita médica em farmácias credenciadas — não precisa ser do SUS.',
+    feedbackWrong: 'Genéricos têm preço controlado por lei — são até 35% mais baratos. E no Farmácia Popular, vários medicamentos essenciais são gratuitos ou com 90% de desconto, com apenas CPF e receita.',
+    link: 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/f/farmacia-popular',
+    linkLabel: 'Farmácia Popular — Ministério da Saúde',
+  },
+  {
+    moduleIndex: 3,
+    text: 'Se você acha que teve um direito de saúde negado — pelo SUS ou por plano privado — qual o primeiro passo gratuito e acessível?',
+    options: [
+      'Contratar imediatamente um advogado particular especializado',
+      'Ir à Defensoria Pública, que atende gratuitamente quem não pode pagar advogado',
+      'Esperar e ver se o problema se resolve sozinho',
+      'Publicar nas redes sociais e aguardar repercussão',
+    ],
+    correct: 1,
+    feedback: 'Muito bem! A Defensoria Pública é gratuita para quem não pode pagar advogado e atua em ações relacionadas à saúde. Muitos municípios têm Núcleo de Defesa da Saúde específico para esses casos.',
+    tip: 'Judicializar a saúde funciona: tribunais brasileiros concedem medicamentos, cirurgias e internações negados administrativamente. A Defensoria tem experiência nessas ações e costuma conseguir liminar rápida.',
+    feedbackWrong: 'A Defensoria Pública é o primeiro passo — é gratuita e especializada. Muitos direitos de saúde são garantidos judicialmente em dias, quando há urgência. Não espere o problema piorar.',
+    link: 'https://www.gov.br/dpu/pt-br',
+    linkLabel: 'Defensoria Pública da União (DPU)',
+  },
+];
+
+// ============================================================
+// ESTADO
+// ============================================================
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+let moduleScores = [0, 0, 0, 0];
+
+// ============================================================
+// FUNÇÕES
+// ============================================================
+function startQuiz() {
+  document.getElementById('screen-home').classList.add('hidden');
+  document.getElementById('screen-quiz').classList.remove('hidden');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = questions[currentQuestion];
+  const m = modules[q.moduleIndex];
+  const total = questions.length;
+
+  const pct = Math.round((currentQuestion / total) * 100);
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = `Questão ${currentQuestion + 1} de ${total}`;
+  document.getElementById('score-label').textContent = `✨ ${score} pontos`;
+
+  const header = document.getElementById('module-header');
+  header.className = `flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 rounded-xl px-3 py-2 ${m.headerBg}`;
+  document.getElementById('module-icon').textContent = m.icon;
+  document.getElementById('module-name').textContent = m.name;
+  document.getElementById('module-name').className = `font-black text-lg ${m.headerText}`;
+  document.getElementById('module-subtitle').textContent = m.subtitle;
+  document.getElementById('module-subtitle').className = `text-sm font-semibold ${m.headerSub}`;
+
+  document.getElementById('question-text').textContent = q.text;
+
+  const container = document.getElementById('options-container');
+  container.innerHTML = '';
+  const letters = ['A', 'B', 'C', 'D'];
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn w-full text-left flex items-center gap-4 p-4 rounded-2xl border-2 border-slate-200 hover:border-green-400 hover:bg-green-50 font-bold text-base text-slate-700 transition-all';
+    btn.innerHTML = `<span class="flex-shrink-0 w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center font-black text-slate-600">${letters[i]}</span><span>${opt}</span>`;
+    btn.onclick = () => selectAnswer(i);
+    container.appendChild(btn);
+  });
+
+  document.getElementById('feedback-box').classList.add('hidden');
+  document.getElementById('btn-next').classList.add('hidden');
+  document.getElementById('tip-box').classList.add('hidden');
+  document.getElementById('link-box').classList.add('hidden');
+
+  const card = document.getElementById('question-card');
+  card.classList.remove('animate-slide-up');
+  void card.offsetWidth;
+  card.classList.add('animate-slide-up');
+}
+
+function selectAnswer(index) {
+  if (answered) return;
+  answered = true;
+
+  const q = questions[currentQuestion];
+  const isCorrect = index === q.correct;
+  const buttons = document.querySelectorAll('#options-container button');
+
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.correct) {
+      btn.classList.add('bg-green-50', 'border-green-400');
+      btn.querySelector('span').className = 'flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-black bg-green-500 text-white';
+    } else if (i === index && !isCorrect) {
+      btn.classList.add('bg-red-50', 'border-red-400', 'animate-shake');
+      btn.querySelector('span').className = 'flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-black bg-red-400 text-white';
+    }
+  });
+
+  if (isCorrect) {
+    score++;
+    moduleScores[q.moduleIndex]++;
+  }
+
+  const feedbackBox = document.getElementById('feedback-box');
+  feedbackBox.classList.remove('hidden', 'animate-bounce-in');
+  void feedbackBox.offsetWidth;
+  feedbackBox.classList.add('animate-bounce-in');
+
+  if (isCorrect) {
+    feedbackBox.className = 'mt-6 rounded-2xl p-5 animate-bounce-in bg-green-50 border border-green-200';
+    document.getElementById('feedback-icon').textContent = '🎉';
+    document.getElementById('feedback-title').textContent = 'Resposta certa!';
+    document.getElementById('feedback-title').className = 'font-black text-lg text-green-800';
+    document.getElementById('feedback-text').textContent = q.feedback;
+    document.getElementById('feedback-text').className = 'font-semibold text-base leading-relaxed text-green-700';
+  } else {
+    feedbackBox.className = 'mt-6 rounded-2xl p-5 animate-bounce-in bg-rose-50 border border-rose-200';
+    document.getElementById('feedback-icon').textContent = '❌';
+    document.getElementById('feedback-title').textContent = 'Não foi dessa vez!';
+    document.getElementById('feedback-title').className = 'font-black text-lg text-rose-800';
+    document.getElementById('feedback-text').textContent = q.feedbackWrong;
+    document.getElementById('feedback-text').className = 'font-semibold text-base leading-relaxed text-rose-700';
+  }
+
+  if (q.tip) {
+    const tipBox = document.getElementById('tip-box');
+    tipBox.classList.remove('hidden');
+    tipBox.className = 'mt-4 rounded-xl p-4 tip-box bg-amber-50 border-amber-400';
+    document.getElementById('tip-text').textContent = q.tip;
+    document.getElementById('tip-text').className = 'font-semibold text-sm leading-relaxed text-amber-800';
+  }
+
+  if (q.link) {
+    const linkBox = document.getElementById('link-box');
+    linkBox.classList.remove('hidden');
+    document.getElementById('link-url').href = q.link;
+    document.getElementById('link-label').textContent = q.linkLabel;
+  }
+
+  const btnNext = document.getElementById('btn-next');
+  btnNext.classList.remove('hidden');
+  btnNext.textContent = currentQuestion === questions.length - 1 ? 'Ver Resultado Final 🏆' : 'Próxima Pergunta →';
+}
+
+function nextQuestion() {
+  currentQuestion++;
+  if (currentQuestion >= questions.length) {
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  document.getElementById('screen-quiz').classList.add('hidden');
+  document.getElementById('screen-result').classList.remove('hidden');
+
+  const pct = Math.round((score / questions.length) * 100);
+  let emoji, title, subtitle;
+  if (pct >= 90)      { emoji = '🏆'; title = 'Excelente! Você conhece seus direitos!'; subtitle = 'Você está muito bem preparado para defender seus direitos de saúde e educação. Compartilhe esse conhecimento!' ; }
+  else if (pct >= 70) { emoji = '🌟'; title = 'Muito bom! Você está no caminho certo!'; subtitle = 'Você conhece bem seus direitos. Continue se informando — o conhecimento é a melhor proteção!'; }
+  else if (pct >= 50) { emoji = '📚'; title = 'Bom esforço! Há coisas para revisar.'; subtitle = 'Você acertou mais da metade. Releia as explicações das perguntas e consulte os links das fontes.'; }
+  else                { emoji = '💪'; title = 'Continue aprendendo — é o começo!'; subtitle = 'O mais importante é estar aqui buscando informação. Refaça o guia com calma — cada direito que você descobre pode mudar sua vida.'; }
+
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-subtitle').textContent = subtitle;
+  document.getElementById('result-score').textContent = `${score}/12`;
+
+  setTimeout(() => {
+    document.getElementById('result-bar').style.width = pct + '%';
+  }, 200);
+
+  const perModule = 3;
+  moduleScores.forEach((s, i) => {
+    document.getElementById(`summary-${i}-score`).textContent = `${s} de ${perModule} acertos`;
+  });
+}
+
+function resetQuiz() {
+  currentQuestion = 0;
+  score = 0;
+  answered = false;
+  moduleScores = [0, 0, 0, 0];
+  document.getElementById('screen-result').classList.add('hidden');
+  document.getElementById('screen-home').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
